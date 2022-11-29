@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.eltinchopracticas.R
+import com.example.eltinchopracticas.views.ui.Fragments.perfilFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -122,12 +123,14 @@ class LoginActivity : AppCompatActivity() {
             if(it.isSuccessful){
                 val intent: Intent = Intent(this,HomeActivity::class.java)
                 //intent.putExtra("email",account.email)
-                //intent.putExtra("name", account.displayName)
+                //intent.putExtra("perfil", account.photoUrl.toString())
+                //intent.putExtra("google", true)
                 try {
                     val user = firebaseAuth.currentUser
                     val userdb = dbReference.child(user?.uid.toString())
                     userdb.child("name").setValue(account.displayName)
                     userdb.child("email").setValue(account.email)
+                    userdb.child("foto").setValue(account.photoUrl.toString())
                 }catch (ex:Exception){
                     Toast.makeText(this,ex.message, Toast.LENGTH_SHORT).show()
                 }

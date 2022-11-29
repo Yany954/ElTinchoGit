@@ -19,7 +19,7 @@
             app:menu="@menu/menu_navigation_toolbar"
             tools:ignore="MissingConstraints">
             <ImageView
-                android:id="@+id/fotoperfil"
+                android:id="@+id/icono"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="left"
@@ -27,49 +27,45 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-            <ImageView
-                android:id="@+id/fotoperfilgeneral"
-                android:layout_width="213dp"
-                android:layout_height="204dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="70dp"
-                android:src="@mipmap/perfil_menu"/>
+        <ImageView
+            android:id="@+id/fotoperfilgeneral"
+            android:layout_width="162dp"
+            android:layout_height="146dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/perfil_menu" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <ImageButton
                     android:id="@+id/btncamara"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/secondaryColor"
-                    android:src="@drawable/icon_camera"
+                    android:src="@mipmap/icono_camara"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <ImageButton
                     android:id="@+id/btngaleria"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
                     android:layout_marginLeft="255dp"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/secondaryColor"
-                    android:src="@drawable/icon_galeria"
+                    android:src="@mipmap/icono_galeria"
                     tools:ignore="SpeakableTextPresentCheck" />
             </RelativeLayout>
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="278dp"
-            android:layout_gravity="center">
+
 
             <LinearLayout
                 android:layout_width="348dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_gravity="center"
                 android:background="@drawable/style_fondo"
-
                 android:orientation="vertical">
 
                 <TextView
@@ -170,11 +166,11 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="50dp"
+                        android:layout_marginBottom="15dp"
                         android:background="@drawable/stylo_borde_editext"
                         android:fontFamily="sans-serif-light"
                         android:inputType="none"
-                        android:text="+57 317 4750 12 34"
+                        android:text="Numero celular"
                         android:textIsSelectable="false" />
 
                     <ImageButton
@@ -189,12 +185,11 @@
                 </RelativeLayout>
 
             </LinearLayout>
-        </ScrollView>
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/buttonNavigationMenu"
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:layout_marginTop="30dp"
             android:background="@color/fondo_tincho_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

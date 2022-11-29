@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -30,7 +33,7 @@ class pedidosFragment : Fragment(), OnCompraItemClickLitener {
     lateinit var adapter: ComprasAdapter
     val db:FirebaseFirestore=FirebaseFirestore.getInstance()
     lateinit var precioT:TextView
-    lateinit var bottoncompra:Button
+    lateinit var bottoncompra:ImageButton
     private val viewModel by lazy{ViewModelProvider(this).get(ComprasViewModel::class.java)}
     lateinit var firebaseAuth:FirebaseAuth
     override fun onCreateView(
@@ -48,7 +51,11 @@ class pedidosFragment : Fragment(), OnCompraItemClickLitener {
         observeData()
         preciototal()
         bottoncompra.setOnClickListener{
-            realizarcompra()
+            if(precioT.text.toString().equals("0")){
+                Toast.makeText(activity,"No has añadido nada al carrito",Toast.LENGTH_LONG).show()
+            } else{
+                realizarcompra()
+            }
         }
         return view
     }
@@ -59,7 +66,6 @@ class pedidosFragment : Fragment(), OnCompraItemClickLitener {
         })
     }
     private fun preciototal(){
-        observeData()
         db.collection("compras")
             .get()
             .addOnSuccessListener {
@@ -74,15 +80,17 @@ class pedidosFragment : Fragment(), OnCompraItemClickLitener {
             }
     }
     private fun realizarcompra(){
-        val builder=AlertDialog.Builder(requireContext())
-        builder.setTitle("CompraElTincho")
-        builder.setMessage("¿Desea realizar esta compra?")
-        builder.setPositiveButton("Aceptar"){
-            dialog,which->
-            findNavController().navigate(R.id.action_pedidosFragment_to_menuFragment)
-        }
-        builder.setNegativeButton("Cancelar",null)
-        builder.show()
+
+            val builder=AlertDialog.Builder(requireContext())
+            builder.setTitle("CompraElTincho")
+            builder.setMessage("¿Desea realizar esta compra?")
+            builder.setPositiveButton("Aceptar"){
+                    dialog,which->
+                findNavController().navigate(R.id.action_pedidosFragment_to_menuFragment)
+            }
+            builder.setNegativeButton("Cancelar",null)
+            builder.show()
+
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_navigation_toolbar, menu)
@@ -131,5 +139,6 @@ class pedidosFragment : Fragment(), OnCompraItemClickLitener {
             .document(compra.titulo)
             .delete()
         observeData()
+        preciototal()
     }
 }

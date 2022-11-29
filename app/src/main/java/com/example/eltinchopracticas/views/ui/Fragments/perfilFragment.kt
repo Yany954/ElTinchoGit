@@ -8,6 +8,7 @@ import android.view.*
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 
 
 @Suppress("DEPRECATION")
@@ -33,6 +35,7 @@ class perfilFragment : Fragment() {
         val  nombreCompleto=view.findViewById<EditText>(R.id.nombrecompleto)
         val correoCompleto=view.findViewById<EditText>(R.id.correoelectronico)
         val celular=view.findViewById<EditText>(R.id.celularcompleto)
+        val foto=view?.findViewById<ImageView>(R.id.fotoperfilgeneral)
         firebaseAuth= Firebase.auth
 
 
@@ -43,6 +46,16 @@ class perfilFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 nombreCompleto.setText(snapshot.child("name").value.toString())
                 celular.setText(snapshot.child("celular").value.toString())
+                //val fotoUsuario=snapshot.child("foto").value.toString()
+                try{
+                    val fotoUsuario=snapshot.child("foto").value.toString()
+                    if(fotoUsuario!=null){
+                        Picasso.with(context).load(fotoUsuario).into(foto)
+                    }
+                }catch (ex:Exception){
+                    Toast.makeText(activity,ex.message, Toast.LENGTH_SHORT).show()
+                }
+
             }
 
             override fun onCancelled(error: DatabaseError) {

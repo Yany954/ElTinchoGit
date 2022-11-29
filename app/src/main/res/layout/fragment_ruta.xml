@@ -54,62 +54,31 @@
                 android:layout_marginStart="9dp"
                 android:layout_marginEnd="81dp" />
         </RelativeLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="476dp"
             android:layout_gravity="center"
+            android:orientation="vertical"
             android:padding="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/secondaryLightColor"
-                android:text="El Tincho Parrilla Argentina Campestre"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/primaryTextColor"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
 
-                android:text="Tabio. Vereda Rio Frio Oriental \n+57 319 312 01 10"
-                />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="324dp"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"
+                android:text="El Tincho Parrilla Argentina Campestre"
                 android:textColor="@color/secondaryLightColor"
-                android:text="Email"
-                />
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/primaryTextColor"
-                android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:text="eltinchoparrillargentina@gmail.com"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/secondaryLightColor"
-                android:text="Mas información"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:text="Tabio. Vereda Rio Frio Oriental \n+57 319 312 01 10"
                 android:textColor="@color/primaryTextColor"
-                android:textStyle="bold"
-                android:text="https://goo.gl/maps/RJSGkT1iKoMXeXXA9"/>
+                android:textSize="20sp"
+                android:paddingVertical="7dp"
+                android:textStyle="bold" />
             <fragment
                 android:id="@+id/map_view"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -124,7 +93,7 @@
             android:id="@+id/buttonNavigationMenu"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:background="@color/fondo_tincho3_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

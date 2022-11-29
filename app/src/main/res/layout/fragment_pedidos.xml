@@ -7,31 +7,33 @@
     tools:context=".views.ui.Fragments.pedidosFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="492dp"
+        android:layout_height="987dp"
         android:background="@color/primaryColor"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
+            android:id="@+id/actionbartoolbar"
+            android:layout_width="390dp"
             android:layout_height="wrap_content"
             android:background="@color/fondo_tincho_background"
-            android:id="@+id/actionbartoolbar"
             app:menu="@menu/menu_navigation_toolbar"
             tools:ignore="MissingConstraints">
+
             <ImageView
                 android:id="@+id/fotoperfil"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="left"
-                android:src="@mipmap/icono_toolbar_tincho"/>
+                android:src="@mipmap/icono_toolbar_tincho" />
         </androidx.appcompat.widget.Toolbar>
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="113dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/theme_gradients_background">
 
@@ -59,42 +61,10 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/preciototal"
-                android:layout_width="208dp"
-                android:layout_height="55dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/boton_favorito"
-                android:text="0"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTextColor"
-                android:textIsSelectable="false"
-                android:textSize="30dp" />
-
-            <Button
-                android:id="@+id/botoncomprar"
-                android:layout_width="150dp"
-                android:layout_height="55dp"
-                android:layout_marginLeft="240dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/stylo_borde_boton"
-                android:text="Comprar"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTextColor"
-                android:textIsSelectable="false"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewcompras"
-            android:layout_width="match_parent"
-            android:layout_height="373dp"
+            android:layout_width="391dp"
+            android:layout_height="457dp"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,11 +72,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/encabezado"></androidx.recyclerview.widget.RecyclerView>
 
+        <RelativeLayout
+            android:layout_width="379dp"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/botoncomprar"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/preciototal"
+                android:background="@color/el_tincho_sinfondo_background"
+                android:src="@mipmap/icon_llevar" />
+
+            <TextView
+                android:id="@+id/textTotal"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Total:  $"
+                android:textAlignment="center"
+                android:textColor="@color/primaryTextColor"
+                android:textIsSelectable="false"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/preciototal"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/textTotal"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/primaryTextColor"
+                android:textIsSelectable="false"
+                android:textSize="22sp" />
+        </RelativeLayout>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/buttonNavigationMenu"
-            android:layout_width="match_parent"
+            android:layout_width="390dp"
             android:layout_height="56dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:background="@color/fondo_tincho2_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
